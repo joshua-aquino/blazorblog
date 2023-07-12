@@ -1,0 +1,19 @@
+@page "/article/{id:int}"
+<h1>@post.Title</h1>
+<img src="img/articles/@post.Image">
+<h2>@post.Introduction</h2>
+<p>@post.Body</p>
+
+@using blazorblog.Data;
+@inject IConfiguration configuration;
+@code {
+    [Parameter]
+    public int id {get;set;}
+    private BbDbContext _context;
+    public blazorblog.Data.Post post;
+    protected override async Task OnInitializedAsync()
+    {
+        _context = new BbDbContext(configuration);
+        post = _context.Posts.Where(x => x.Id == id).FirstOrDefault();
+    }
+}

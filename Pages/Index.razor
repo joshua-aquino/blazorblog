@@ -5,11 +5,14 @@
 <div class="container">
     @foreach(var post in posts)
     {
-        <h1>@post.Title</h1>
-        <h2>@post.Introduction</h2>
-        <p>@post.Body</p>
-        <hr />
-        <br />
+        <a href="/article/@post.Id">
+            <h2>@post.Title</h2>
+            <img src="img/articles/@post.Image">
+            <h3>@post.Introduction</h3>
+            <p>@post.Body</p>
+            <hr />
+            <br />
+        </a>
     }
 </div>
 
@@ -17,7 +20,7 @@
 @inject IConfiguration configuration;
 @code {
     private BbDbContext _context;
-    public List<Post> posts;
+    public List<blazorblog.Data.Post> posts;
     protected override async Task OnInitializedAsync()
     {
         _context = new BbDbContext(configuration);
