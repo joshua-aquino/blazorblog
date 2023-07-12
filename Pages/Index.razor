@@ -1,19 +1,24 @@
 ﻿@page "/"
 
-<PageTitle>Blazor Blog</PageTitle>
     @foreach(var post in posts)
     {
         <section>
             <div class="padded">
-                
-                    <hgroup>
-                        <a href="/article/@post.Id">
-                              <h2>@post.Title</h2>
-                        <h3>@post.Introduction</h3>
-                        </a>
-                    </hgroup>
-                    <img src="img/articles/@post.Image">
-                    <p>@post.Body</p>
+                <div class="row">
+                    <div class="one-third column">
+                        <img src="img/articles/@post.Image">
+                    </div>
+                    <div class="two-thirds column">
+                        <hgroup>
+                            <a href="/article/@post.Id">
+                                <h2>@post.Title</h2>
+                                <h3>@post.Introduction</h3>
+                            </a>
+                        </hgroup>
+                    
+                        @((MarkupString)@post.Body)
+                    </div>
+                </div>
             </div>
         </section>
     }

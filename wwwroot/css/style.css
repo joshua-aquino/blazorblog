@@ -47,7 +47,7 @@ html {
   height: 100vh;
   font-family: sans-serif;
   scroll-behavior: smooth;
-  background-image: url('/static/images/background.webp');
+  background-image: url('/img/background.webp');
   background-attachment: fixed;
   background-size: 100vw auto;
 }
