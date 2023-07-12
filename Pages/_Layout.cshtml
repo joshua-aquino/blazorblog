@@ -8,15 +8,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="~/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
-    <link href="blazorblog.styles.css" rel="stylesheet" />
+    <link href="/css/normalize.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
 <body>
+    <div id='page'>
+          <div id='page'>
+    <header>
+      <h1>JOSHUA AQUINO</h1>
+      <div>
+        <a href="https://joshuaaquino.xyz">Home</a>
+        &nbsp
+        <a href="https://joshuaaquino.xyz/blog">Blog</a>
+        &nbsp
+	|
+        &nbsp
+        <a href="https://github.com/joshua-aquino/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+        &nbsp
+        <a href="https://www.linkedin.com/in/joshua-aquino-66b680194/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+      </div>
+    </header>
+    <main class="width-limit">
     @RenderBody()
+    </main>
+    </div>
 
-    <div id="blazor-error-ui">
+    
+
+  <footer>
+    <p id="blazor-error-ui">
         <environment include="Staging,Production">
             An error has occurred. This application may no longer respond until reloaded.
         </environment>
@@ -25,8 +46,10 @@
         </environment>
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
-    </div>
-
+    </p>
+  </footer>
+  <script src="/static/script.js"></script>
+	<script src="https://kit.fontawesome.com/41aeeab5c9.js" crossorigin="anonymous"></script>
     <script src="_framework/blazor.server.js"></script>
 </body>
 </html>
