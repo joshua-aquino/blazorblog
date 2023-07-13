@@ -1,22 +1,28 @@
-﻿@page "/"
+﻿@page "/blog"
 
 <section>
     <div class="padded">
         <hgroup>
-            <h2>Places</h2>
-            <h3>This is a list of places I like.</h3>
+            <h2>Blog Archive</h2>
+            <h3>This is where I keep my web logs.</h3>
         </hgroup>
-</div>
-</section>
-<section>
-    <div class="padded">
-        <hgroup>
-            <h2>Things</h2>
-            <h3>This is a list of things I made.</h3>
-        </hgroup>
-</div>
-</section>
+<div class="blog-list">
+    @foreach(var post in posts)
+    {
+    <a href="/blog/@post.Id">
+	    <div>
+	        <img src="/img/blog/@post.Image">
+	    </div>
+	    <span>
+	        <i>@post.Title</i>
+	        <small>@post.Preview...&nbsp; <time>@post.Created</time></small>
+	    </span>
+    </a>
+    }
 
+</div>
+</div>
+</section>
 @using blazorblog.Data;
 @inject IConfiguration configuration;
 @code {

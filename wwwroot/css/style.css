@@ -157,7 +157,6 @@ p {
 }
 
 small {
-  text-align: justify;
   display: block;
 }
 
@@ -744,6 +743,25 @@ p.text-center {
 
 .blog-list time {
   white-space: nowrap;
+}
+@media only screen and (min-width: 30rem) {
+  .blog-list {
+    display: flex;
+    flex-flow: row wrap;
+    gap: calc(var(--tb-padding) / 2);
+  }
+  .blog-list a {
+    display: block;
+    flex: 0 1 calc(50% - calc(var(--tb-padding) / 3.9));
+  }
+}
+@media only screen and (min-width: 45rem) {
+  .blog-list {
+    gap: calc(var(--dt-padding) / 3);
+  }
+  .blog-list a {
+    flex: 0 1 calc(33% - calc(var(--dt-padding) / 5));
+  }
 }
 
 #piper {

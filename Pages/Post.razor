@@ -1,11 +1,11 @@
-@page "/article/{id:int}"
+@page "/blog/{id:int}"
 <section>
     <div class="padded">
         <hgroup>
             <h2>@post.Title</h2>
             <h3>@post.Introduction</h3>
         </hgroup>
-        <img src="img/articles/@post.Image">
+        <img src="img/blog/@post.Image">
         @((MarkupString)@post.Body)
     </div>
 </section>
