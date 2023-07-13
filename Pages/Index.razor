@@ -1,32 +1,33 @@
 ﻿@page "/"
 
+<section>
+    <div class="padded">
+        <hgroup>
+            <h2>Blog Archive</h2>
+            <h3>This is where I keep my web logs.</h3>
+        </hgroup>
+<div class="blog-list">
     @foreach(var post in posts)
     {
-        <section>
-            <div class="padded">
-                <div class="row">
-                    <div class="one-third column">
-                        <img src="img/articles/@post.Image">
-                    </div>
-                    <div class="two-thirds column">
-                        <hgroup>
-                            <a href="/article/@post.Id">
-                                <h2>@post.Title</h2>
-                                <h3>@post.Introduction</h3>
-                            </a>
-                        </hgroup>
-                    
-                        @((MarkupString)@post.Body)
-                    </div>
-                </div>
-            </div>
-        </section>
+    <a href="/article/@post.Id">
+	    <div>
+	        <img src="/img/articles/@post.Image">
+	    </div>
+	    <span>
+	        <i>@post.Title</i>
+	        <small>@post.Preview...&nbsp; <time>@post.Created</time></small>
+	    </span>
+    </a>
     }
 
+</div>
+</div>
+</section>
 @using blazorblog.Data;
 @inject IConfiguration configuration;
 @code {
     private BbDbContext _context;
+    public MarkupString testString = (MarkupString)"abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxy";
     public List<blazorblog.Data.Post> posts;
     protected override async Task OnInitializedAsync()
     {

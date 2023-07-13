@@ -700,6 +700,52 @@ p.text-center {
   line-height: 1em;
 }
 
+.blog-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: calc(var(--mb-padding) / 2);
+  font-size: small;
+}
+
+.blog-list a {
+  display: block;
+  position: relative;
+  flex: 0 1 calc(50% - calc(var(--mb-padding) / 3.9));
+  text-decoration: none;
+  color: inherit;
+  font-family: sans-serif;
+}
+
+.blog-list div {
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+}
+
+.blog-list img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-list i {
+  font-style: normal;
+  margin: 0;
+}
+
+.blog-list small {
+  color: gray;
+  margin: 0;
+  font-size: inherit;
+}
+
+.blog-list time {
+  white-space: nowrap;
+}
+
 #piper {
   width: 6rem;
   margin: 1rem;

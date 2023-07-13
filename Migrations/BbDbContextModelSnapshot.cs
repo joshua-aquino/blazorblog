@@ -26,11 +26,19 @@ namespace blazorblog.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Created")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Introduction")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Preview")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
