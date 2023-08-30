@@ -29,6 +29,7 @@
 --muted: #333333;
 --white: #eeeeee;
 --advanced-white: #fafafa; 
+--light-muted: #888888;
 
 --mb-padding: 0.6rem;
 --tb-padding: 2rem;
@@ -97,11 +98,11 @@ h2 {
 
 h3 {
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 @media only screen and (min-width: 30rem) {
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -135,6 +136,15 @@ ol {
   padding: 0;
   margin-left: 1em;
   display: inline-block;
+	line-height: 1.5rem;
+}
+@media only screen and (min-width: 30rem) {
+}
+@media only screen and (min-width: 45rem) {
+  ul,
+	ol {
+    line-height: 2rem;
+  }
 }
 
 hr {
@@ -145,6 +155,7 @@ hr {
 
 p {
   text-align: justify;
+	line-height: 1.5rem;
 }
 @media only screen and (min-width: 30rem) {
   p {
@@ -448,7 +459,6 @@ header a {
 }
 
 #sec-location p {
-  line-height: 1rem;
 }
 
 footer {
@@ -465,6 +475,10 @@ footer {
 
 footer a {
   color: inherit;
+}
+
+footer a:hover {
+  color: var(--light-muted)
 }
 
 footer p {
@@ -732,13 +746,15 @@ p.text-center {
 
 .blog-list i {
   font-style: normal;
-  margin: 0;
+  display: block;
+  margin: 0.2rem 0;
 }
 
 .blog-list small {
-  color: gray;
+  color: var(--light-muted);
   margin: 0;
   font-size: inherit;
+  line-height: 1.2rem;
 }
 
 .blog-list time {
