@@ -31,10 +31,27 @@
 --advanced-white: #fafafa; 
 --light-muted: #888888;
 
+--mb-padding: 1rem;
+--tb-padding: 4rem;
+--dt-padding: 4rem;
+--dt-width: 40rem;
+		--mb-lineheight: 1.7rem;
+		--tb-lineheight: 2rem;
+		--dt-lineheight: 2rem;
+	--sm-vertmargin: 1rem 0;
+	--md-vertmargin: 2rem 0;
+	--lg-vertmargin: 3rem 0;
+	--hg-vertmargin: 5rem 0;
+	--sm-onemargin: 1rem;
+	--md-onemargin: 2rem;
+	--lg-onemargin: 3rem;
+	--hg-onemargin: 5rem;
+		/*
 --mb-padding: 0.6rem;
 --tb-padding: 2rem;
 --dt-padding: 4rem;
 --dt-width: 50rem;
+*/
 }
 
 *,
@@ -60,19 +77,6 @@ body {
   color: var(--muted);
 }
 
-hgroup {
-  margin-bottom: 2rem;
-}
-@media only screen and (min-width: 30rem) {
-  hgroup {
-    margin-bottom: 3rem;
-  }
-}
-
-hgroup h2 {
-  margin-bottom: 0;
-}
-
 h1 {
   font-size: 1rem;
   font-family: sans-serif;
@@ -86,28 +90,31 @@ h2 {
   font-family: serif;
   font-size: 2rem;
   font-weight: bolder;
-  margin-top: 0;
+	margin: var(--md-vertmargin);
   text-align: center;
 }
 @media only screen and (min-width: 30rem) {
   h2 {
     font-size: 3rem;
-    text-align: left;
+  text-align: center;
   }
 }
 
 h3 {
-  font-weight: normal;
-  font-size: 1.3rem;
+	text-align: center;
+  font-size: 1.4rem;
+	margin: var(--md-vertmargin);
 }
 @media only screen and (min-width: 30rem) {
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 }
 
 h4 {
+	text-align: center;
   font-size: 1rem;
+	margin: var(--md-vertmargin);
 }
 @media only screen and (min-width: 30rem) {
   h4 {
@@ -115,47 +122,45 @@ h4 {
   }
 }
 
-main > section:first-of-type,
-main > .section-sel:first-of-type {
-  margin-top: 4rem;
-}
-@media only screen and (min-width: 30rem) {
-  main > section:first-of-type,
-  main > .section-sel:first-of-type {
-    margin-top: 6rem;
-  }
+h5 {
+	margin: var(--sm-vertmargin);
 }
 
-main > section > div > *:last-child,
-main > section > *:last-child {
-  margin-bottom: 0;
+code {
+	border: 0.1rem dashed var(--primary);
+	background: var(--advanced-white);
+	display: block;
+	color: var(--primary);
+	padding: 1rem;
+	margin: var(--sm-vertmargin);
+	font-size: 0.7rem;
+	overflow: scroll;
 }
 
 ul,
 ol {
   padding: 0;
+	margin: var(--sm-vertmargin);
   margin-left: 1em;
-  display: inline-block;
-	line-height: 1.5rem;
+  display: block;
+	line-height: var(--mb-lineheight);
 }
 @media only screen and (min-width: 30rem) {
 }
 @media only screen and (min-width: 45rem) {
   ul,
 	ol {
-    line-height: 2rem;
+    line-height: var(--dt-lineheight);
   }
 }
 
-hr {
-  border: none;
-  height: 0.1rem;
-  background-color: var(--dark);
+li {
 }
 
 p {
   text-align: justify;
-	line-height: 1.5rem;
+	line-height: var(--mb-lineheight);
+	margin: var(-sm-vertmargin);
 }
 @media only screen and (min-width: 30rem) {
   p {
@@ -163,8 +168,17 @@ p {
 }
 @media only screen and (min-width: 45rem) {
   p {
-    line-height: 2rem;
+    line-height: var(-md-vertmargin);
   }
+}
+
+hr {
+  border-top: 0.1rem dashed var(--primary);
+	margin: var(--md-vertmargin);
+}
+
+em {
+	font-variant: small-caps;
 }
 
 small {
@@ -251,12 +265,16 @@ input[type=text] {
   button, 
   input[type=submit], 
   input[type=reset], 
+  code, 
+  hr, 
   input[type=text]) {
     padding: 0 var(--mb-padding);
   }
   .padded > button, 
   .padded > input[type=submit], 
   .padded > input[type=reset], 
+  .padded > code, 
+  .padded > hr, 
   .padded > input[type=text] {
     margin-left: var(--mb-padding);
     width: calc(100% - 2*var(--mb-padding));
@@ -266,12 +284,16 @@ input[type=text] {
   .padded > *:not(button, 
   input[type=submit], 
   input[type=reset], 
+  code, 
+  hr, 
   input[type=text]) {
     padding: 0 var(--tb-padding);
   }
   .padded > button, 
   .padded > input[type=submit], 
   .padded > input[type=reset], 
+  .padded > code, 
+  .padded > hr, 
   .padded > input[type=text] {
     margin-left: var(--tb-padding);
     width: calc(100% - 2*var(--tb-padding));
@@ -281,12 +303,16 @@ input[type=text] {
   .padded > *:not(button, 
   input[type=submit], 
   input[type=reset], 
+  code, 
+  hr, 
   input[type=text]) {
     padding: 0 var(--dt-padding);
   }
   .padded > button, 
   .padded > input[type=submit], 
   .padded > input[type=reset], 
+  .padded > code, 
+  .padded > hr, 
   .padded > input[type=text] {
     margin-left: var(--dt-padding);
     width: calc(100% - 2*var(--dt-padding));
@@ -392,16 +418,38 @@ input[type=text] {
 */
 
 section {
-  padding: 2rem 0;
+	padding: var(--lg-vertmargin);
   margin-bottom: 4rem;
   background-color: var(--white);
 }
 @media only screen and (min-width: 30rem) {
   section {
-    padding: 3rem 0;
+	padding: var(--hg-vertmargin);
     margin-bottom: 6rem;
   }
 }
+
+main > section:first-of-type,
+main > .section-sel:first-of-type {
+  margin-top: 4rem;
+}
+@media only screen and (min-width: 30rem) {
+  main > section:first-of-type,
+  main > .section-sel:first-of-type {
+    margin-top: 6rem;
+  }
+}
+
+main > section > div > *:first-child,
+main > section > *:first-child {
+  margin-top: 0;
+}
+
+main > section > div > *:last-child,
+main > section > *:last-child {
+  margin-bottom: 0;
+}
+
 
 nav {
   background-color: var(--white);
