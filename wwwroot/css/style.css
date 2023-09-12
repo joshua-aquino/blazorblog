@@ -19,11 +19,13 @@
 
 :root {
 --primary: #2f847c;
---secondary: #f7b733;
+--secondary: ;
 --success: ;
 --danger: ;
 --warning: ;
---info: ;
+--info: #d1e0df;
+--code: #fafafa;
+--mark: #ffff99;
 --light: #dddddd;
 --dark: #111111;
 --muted: #333333;
@@ -110,20 +112,30 @@ h2 {
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 @media only screen and (min-width: 30rem) {
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 }
 
+h3:after,
+h4:after {
+	display: block;
+	content: ' ';
+	border-bottom: solid;
+	border-width: 0.1rem;
+	padding-top: var(--sm-onemargin);
+	color: var(--light-muted);
+}
+
 h4 {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 @media only screen and (min-width: 30rem) {
   h4 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -136,16 +148,94 @@ pre {
 	overflow: auto;
 }
 
-code {
-	border: 0.1rem dashed var(--primary);
-	background: var(--advanced-white);
+details {
 	display: block;
+}
+
+details summary {
+	cursor: pointer;
+	list-style-type: none;
+}
+
+details summary:hover {
 	color: var(--primary);
+}
+
+details summary > * {
+	display: inline;
+}
+
+details summary > *:before {
+   content: ' ';
+   border: solid;
+   border-width: 0 0.12em 0.12em 0;
+   display: inline-block;
+   padding: 0 0.25em 0.25em 0;
+   transform: rotate(45deg);
+	margin-right: 0.4em;
+	margin-bottom: 0.2em;
+}
+
+details[open] > summary > *:before {
+	margin-bottom: 0.1em;
+   transform: rotate(-135deg);
+}
+
+aside {
+	border: 0.1rem solid var(--primary);
+	background: var(--info);
+	display: block;
+	color: var(--dark);
 	padding: 1rem;
-	margin: var(--sm-vertmargin);
-	font-size: 0.7rem;
+	line-height: inherit;
+	font-size: 0.9rem;
+}
+
+aside > *:first-child {
+	margin-top: 0;
+}
+aside > *:last-child {
+	margin-bottom: 0;
+}
+
+aside > *:first-child:before {
+	content: "Note: ";
+	font-weight: bold;
+}
+
+code {
+	background: var(--code);
+	color: var(--primary);
+	display: inline;
+	padding: 0.1em 0.5em;
+	font-size: 0.7em;
+	vertical-align: middle;
+	white-space: nowrap;
 	overflow: auto;
-	max-height: 50em;
+}
+
+pre > code {
+	border:   0.1rem solid var(--primary);
+	display: block;
+	padding: 1rem;
+	max-height: 20em;
+	white-space: pre;
+	font-size: 0.7rem;
+}
+
+pre.file > code {
+	border-style: dashed solid solid solid;
+}
+
+pre.file > div {
+	white-space: pre;
+	font-size: 0.7rem;
+	border:   0.1rem solid var(--primary);
+	padding: 1rem;
+	margin-bottom: -1.2rem;
+	border-style: solid solid none solid;
+	background: var(--code);
+	color: var(--primary);
 }
 
 .convo {
@@ -161,6 +251,7 @@ code {
 	margin: var(--sm-vertmargin);
 	font-style: normal;
 	font-weight: normal;
+	box-shadow: 0.1rem 0.3rem 0.6rem -0.2rem rgba(0, 0, 0, 0.1);
 }
 
 .convo > i {
@@ -193,11 +284,26 @@ ol {
   }
 }
 
+dl {
+	margin: var(--sm-vertmargin);
+	line-height: var(--mb-lineheight);
+}
+@media only screen and (min-width: 30rem) {
+}
+@media only screen and (min-width: 45rem) {
+	dl {
+    line-height: var(--dt-lineheight);
+  }
+}
+
+dl dd {
+	font-family: serif;
+}
+
 li {
 }
 
 p {
-  text-align: justify;
 	line-height: var(--mb-lineheight);
 	margin: var(-sm-vertmargin);
 }
@@ -220,6 +326,10 @@ em {
 	font-variant: small-caps;
 	font-family: serif;
 	font-style: italic;
+}
+
+mark {
+	background-color: var(--mark);
 }
 
 small {
@@ -306,7 +416,8 @@ input[type=text] {
   button, 
   input[type=submit], 
   input[type=reset], 
-  code, 
+  pre, 
+	aside,
   hr, 
   input[type=text]) {
     padding: 0 var(--mb-padding);
@@ -314,7 +425,8 @@ input[type=text] {
   .padded > button, 
   .padded > input[type=submit], 
   .padded > input[type=reset], 
-  .padded > code, 
+  .padded > pre, 
+  .padded > aside, 
   .padded > hr, 
   .padded > input[type=text] {
     margin-left: var(--mb-padding);
@@ -325,7 +437,8 @@ input[type=text] {
   .padded > *:not(button, 
   input[type=submit], 
   input[type=reset], 
-  code, 
+  pre, 
+  aside, 
   hr, 
   input[type=text]) {
     padding: 0 var(--tb-padding);
@@ -333,7 +446,8 @@ input[type=text] {
   .padded > button, 
   .padded > input[type=submit], 
   .padded > input[type=reset], 
-  .padded > code, 
+  .padded > pre, 
+  .padded > aside, 
   .padded > hr, 
   .padded > input[type=text] {
     margin-left: var(--tb-padding);
@@ -344,7 +458,8 @@ input[type=text] {
   .padded > *:not(button, 
   input[type=submit], 
   input[type=reset], 
-  code, 
+  pre, 
+  aside, 
   hr, 
   input[type=text]) {
     padding: 0 var(--dt-padding);
@@ -352,7 +467,8 @@ input[type=text] {
   .padded > button, 
   .padded > input[type=submit], 
   .padded > input[type=reset], 
-  .padded > code, 
+  .padded > pre, 
+  .padded > aside, 
   .padded > hr, 
   .padded > input[type=text] {
     margin-left: var(--dt-padding);
