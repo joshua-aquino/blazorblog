@@ -85,7 +85,7 @@ body {
 
 h2, h3, h4 {
 	margin: var(--md-vertmargin);
-	text-align: justify;
+	text-align: left;
 }
 
 h1 {
@@ -318,7 +318,7 @@ p {
 }
 
 hr {
-  border-top: 0.1rem dashed var(--primary);
+  border-top: 0.1rem solid;
 	margin: var(--md-vertmargin);
 }
 
