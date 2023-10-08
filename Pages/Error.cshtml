@@ -3,40 +3,63 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Error</title>
-    <link href="~/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="~/" />
+    <link href="/css/normalize.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
-
 <body>
-    <div class="main">
-        <div class="content px-4">
-            <h1 class="text-danger">Error.</h1>
-            <h2 class="text-danger">An error occurred while processing your request.</h2>
-
-            @if (Model.ShowRequestId)
-            {
-                <p>
-                    <strong>Request ID:</strong> <code>@Model.RequestId</code>
-                </p>
-            }
-
-            <h3>Development Mode</h3>
-            <p>
-                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
-            </p>
-            <p>
-                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
-                It can result in displaying sensitive information from exceptions to end users.
-                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
-                and restarting the app.
-            </p>
-        </div>
+    <div id='page'>
+        <header>
+            <h1>JOSHUA AQUINO</h1>
+            <div>
+                <a href="./">Home</a>
+                &nbsp
+                <a href="./blog">Blog</a>
+                &nbsp
+	|
+                &nbsp
+                <a href="https://github.com/joshua-aquino/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                &nbsp
+                <a href="https://www.linkedin.com/in/joshua-aquino-66b680194/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+            </div>
+        </header>
+        <main class="width-limit">
+            <section>
+                <div class="padded">
+                    <h2>Error</h2>
+                    <h3>An error occurred while processing your request.</h3>
+                    @if (Model.ShowRequestId)
+                    {
+                        <p>
+                            <strong>Request ID:</strong> <code>@Model.RequestId</code>
+                        </p>
+                    }
+                    <h3>Development Mode</h3>
+                    <p>
+                        Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+                    </p>
+                    <p>
+                        <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                        It can result in displaying sensitive information from exceptions to end users.
+                        For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                        and restarting the app.
+                    </p>
+                </div>
+            </section>
+        </main>
     </div>
+    <footer>
+        <p>
+            Many thanks to <a target="_blank" href="https://www.pexels.com/@@erychist/">Eriks Cistovs</a> for the incredible background.
+            What a photographer, huh?
+        </p>
+  </footer>
+<script src="/static/script.js"></script>
+<script src="https://kit.fontawesome.com/41aeeab5c9.js" crossorigin="anonymous"></script>
+<script src="_framework/blazor.server.js"></script>
 </body>
-
 </html>
