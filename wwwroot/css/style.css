@@ -913,13 +913,21 @@ p.text-center {
   }
 }
 
+.image-list span > * {
+  margin: var(--sm-vertmargin);
+}
+.image-list ul {
+  margin-left: 1.5em;
+}
+
 .image-list i {
   font-size: 2em;
   text-align: center;
   display: block;
 }
 
-.image-list p {
+.image-list p,
+.image-list li {
   text-align: left;
   line-height: 1em;
 }
