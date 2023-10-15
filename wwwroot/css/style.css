@@ -917,7 +917,7 @@ p.text-center {
   margin: var(--sm-vertmargin);
 }
 .image-list ul {
-  margin-left: 1.5em;
+  margin-left: 1em;
 }
 
 .image-list i {
